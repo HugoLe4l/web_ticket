@@ -1,0 +1,87 @@
+.box-pegar-senha{
+    width: 100%;
+    min-width: 314px;
+    background: white;
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 300px;
+    padding-bottom: 2%;
+    position: relative;
+}
+.box-pegar-senha div:nth-child(1){
+    background: var(--color-primaria-01);
+    display: flex;
+    align-items: centere;
+    justify-content: center;
+    text-align: center;
+    padding: 3%;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.box-pegar-senha .box-central{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0% 5%;
+}
+.box-pegar-senha .box-central input{
+    width: 100%;
+    outline: none;
+    border: var(--border-01);
+    padding: 3%;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}   
+.box-pegar-senha .box-central .tipo-senha{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.2rem;
+}
+.box-pegar-senha .box-central .tipo-senha .box-tags{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.box-pegar-senha .box-central .tipo-senha .box-tags p{
+    background: violet;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    color: white;
+    opacity: 40%;
+}
+
+.box-pegar-senha button{
+    padding: 3% 10%;
+    outline: none;
+    border: none;
+    background: #1E88E5;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.box-pegar-senha .text-resposta{
+    color: red;
+    font-weight: 500;
+    position: absolute;
+    top: 25%;
+    font-size: 0.9rem;
+}

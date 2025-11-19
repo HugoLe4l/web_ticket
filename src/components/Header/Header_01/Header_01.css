@@ -1,0 +1,11 @@
+header{
+    height: 65px;
+    background: var(--gradient-color-01);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header img{
+    width: 60px;
+}
