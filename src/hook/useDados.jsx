@@ -13,15 +13,24 @@ export function DadosProvider({ children }) {
 
 
     useEffect(() => {
+
         const FilaLocalStorage = JSON.parse(window.localStorage.getItem('fila')) || []
         setFilaOrganizada(FilaLocalStorage)
+
+        const EmAtendimentoLocalStorage = JSON.parse(window.localStorage.getItem('EmAtendimento')) || Array.from({ length: 5 }, (_, index) => ({ guiche: index }))
+        console.log(EmAtendimentoLocalStorage);
+        setEmAtendimento(EmAtendimentoLocalStorage)
+
+
+        const UltimaSenhaLocalStorage = JSON.parse(window.localStorage.getItem('UltimasSenhas')) || Array(5).fill([])
+        setUltimasSenhas(UltimaSenhaLocalStorage)
+        
     }, [])
 
-    
-   /*  const filaAtual = JSON.parse(window.localStorage.getItem('fila')) || []
-    filaAtual.push(novoPaciente)
-    localStorage.setItem('fila', JSON.stringify(filaAtual)) */
-
+    useEffect(() => {
+        console.log(UltimasSenhas);
+        
+    },[UltimasSenhas])
     return (
         <DadosContexto.Provider value={{ ContadorDiarioSenhas, setContadorDiarioSenhas, FilaOrganizada, setFilaOrganizada, EmAtendimento, setEmAtendimento, AtendimentoFinalizado, setAtendimentoFinalizado, UltimasSenhas, setUltimasSenhas }}>
             {children}

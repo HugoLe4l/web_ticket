@@ -7,6 +7,7 @@ import Senha from "../../components/tabela/senha/senha"
 import Box_Pegar_Senha from "../../components/Box_Pegar_Senha/Box_Pegar_Senha"
 
 import ding_dong from "../../assets/audio/ding-dong.mp3"
+import AudioFinalizar from "../../assets/audio/finalizarAtendimento.mp3"
 import { useDados } from "../../hook/useDados"
 
 export default function HomePage() {
@@ -30,9 +31,19 @@ export default function HomePage() {
         audio.play()
         const pegaProximoDaFila = FilaOrganizada[0]
 
-        setEmAtendimento(prev => { const copia = [...prev]; copia[guiche] = { ...copia[guiche], ...pegaProximoDaFila, estado: "Em atendimento" }; return copia })
+        setEmAtendimento(prev => { 
+            const copia = [...prev]; copia[guiche] = { ...copia[guiche], ...pegaProximoDaFila, estado: "Em atendimento" }
+            localStorage.setItem('EmAtendimento', JSON.stringify(copia)) 
+            return copia })
+       
         setFilaOrganizada(prev => prev.slice(1))
-        setUltimasSenhas(prev => [{ senha: pegaProximoDaFila?.senha, tipo: pegaProximoDaFila?.tipo, guiche: guiche }, ...prev].slice(0, 5))
+        localStorage.setItem('fila', JSON.stringify(FilaOrganizada.slice(1)))
+
+        setUltimasSenhas(prev => { 
+            const copia = [{ senha: pegaProximoDaFila?.senha, tipo: pegaProximoDaFila?.tipo, guiche: guiche}, ...prev].slice(0, 5)
+            localStorage.setItem('UltimasSenhas', JSON.stringify(copia))
+            return copia
+        })
         console.log(`Guichê 0${guiche + 1}: Proximo da fila!`);
 
     }
@@ -45,7 +56,14 @@ export default function HomePage() {
             console.log(`Guichê 0${guiche + 1}: Guiche ja está vazio`);
             return
         }
-        setEmAtendimento(prev => { const copia = [...prev]; copia[guiche] = { guiche: guiche }; return copia })
+        const audio = new Audio(AudioFinalizar)
+        audio.volume = 0.1
+        audio.play()
+
+        setEmAtendimento(prev => { 
+            const copia = [...prev]; copia[guiche] = { guiche: guiche };
+            localStorage.setItem('EmAtendimento', JSON.stringify(copia)) 
+            return copia })
         console.log(`Guichê 0${guiche + 1}: Concluiu o atendimento.`);
 
     }

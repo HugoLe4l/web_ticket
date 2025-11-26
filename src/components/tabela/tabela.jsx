@@ -32,8 +32,8 @@ export default function TabelaStyle({ ArrayDados, TipoTabela }) {
                 <div className="c4"> <p>Entrada</p> </div>
                 {TipoTabela === 'Em atendimento' &&
                     <>
-                        <div className="c5"> <p>Guichê </p> </div>
-                        <div className="c6"> <p>Estado</p> </div>
+                        <div className="c6"> <p>Guichê </p> </div>
+                        <div className="c7"> <p>Estado</p> </div>
                     </>
                 }
             </div>

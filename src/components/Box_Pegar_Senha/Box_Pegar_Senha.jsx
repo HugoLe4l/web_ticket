@@ -51,19 +51,21 @@ export default function Box_Pegar_Senha() {
         let FilaNova = FilaOrganizada
         FilaNova.push(novoPaciente)
 
-        const PegaSP = FilaNova.filter( item => item.tipo === "SP")
+        const PegaSP = FilaNova.filter(item => item.tipo === "SP")
         const organizaSP = PegaSP.sort((a, b) => a.hora_entrada.localeCompare(b.hora_entrada))
 
-        const PegaSG = FilaNova.filter( item => item.tipo === "SG")
+        const PegaSG = FilaNova.filter(item => item.tipo === "SG")
         const organizaSG = PegaSG.sort((a, b) => a.hora_entrada.localeCompare(b.hora_entrada))
 
-        const PegaSE = FilaNova.filter( item => item.tipo === "SE")
+        const PegaSE = FilaNova.filter(item => item.tipo === "SE")
         const organizaSE = PegaSE.sort((a, b) => a.hora_entrada.localeCompare(b.hora_entrada))
         FilaNova = [];
         FilaNova.push(...organizaSP, ...organizaSE, ...organizaSG)
+        console.log(FilaNova);
         
         setFilaOrganizada(FilaNova)
 
+        localStorage.setItem('fila', JSON.stringify(FilaNova))
     }
     return (
         <div className="box-pegar-senha">
