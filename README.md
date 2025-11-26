@@ -12,3 +12,6 @@ A aplicação foi construída em ReactJS usando Vite para criação e build do p
 ⮞ useEffect para atualizar os dados quando reiniciar a pagina.
 
 ⮞ localStorage para persistência dos dados no navegador.
+
+
+Acesse o projeto hospedado no Github Pages: <a href="https://hugole4l.github.io/web_ticket/">Link<a/>
