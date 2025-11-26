@@ -3,12 +3,12 @@
 Este sistema foi desenvolvido como atividade prática.
 A aplicação foi construída em ReactJS usando Vite para criação e build do projeto.
 
-Foram utilizados:
+🔰 Foram utilizados:
 
-useState para gerenciamento de estados simples
+⮞ useState para gerenciamento de estados simples.
 
-useContext para compartilhamento de dados entre componentes
+⮞ useContext para compartilhamento de dados entre componentes.
 
-useEffect para lidar com efeitos colaterais
+⮞ useEffect para atualizar os dados quando reiniciar a pagina.
 
-localStorage para persistência dos dados no navegador
+⮞ localStorage para persistência dos dados no navegador.
